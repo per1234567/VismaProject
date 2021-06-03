@@ -78,7 +78,11 @@ class AddPizza{
                 last = i + 1;
             }
         }
-        toppingArray.push(toppings.slice(last, toppings.length));
+        toppingArray.push(toppings.slice(last, toppings.length).trim());
+        var blankTopping;
+        toppingArray.forEach(topping => {
+            if(topping.trim() == '') blankTopping = true;
+        });
 
         var uniqueName = true;
         entries.forEach(entry => {
@@ -92,6 +96,7 @@ class AddPizza{
         else if(price < 0) Error.throw('Price cannot be negative');
         else if(price[price.length - 3] != '.') Error.throw('Price must be to 2 decimal places');
         else if(heat !== '' && heat !== '1' && heat !== '2' && heat !== '3') Error.throw('Heat must be an integer from 1 to 3');
+        else if(blankTopping == true) Error.throw('No topping can be blank');
         else if(toppingArray.length < 2) Error.throw('Pizza must have at least 2 toppings');
         else{
             this.inputMenu.style.display = 'none';

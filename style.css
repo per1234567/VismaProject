@@ -3,16 +3,13 @@
     font-size: 30px;
 }
 
-#pizzaList{
-    overflow: auto;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%);
-    top: 200px;
-    z-index: -1;
+:focus{
+    outline: none;
+}
 
-    height: calc(100% - 220px);
-    width: 80vw;
+ul{
+    padding: 0;
+    list-style-type: none;
 }
 
 #topContainer{
@@ -29,24 +26,66 @@
     border-bottom: 2px black solid;
 }
 
-.topText{
-    display: block;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.8);
-    border:2px black solid;
-    text-align: center;
-    width: 180px;
+#inputWindow{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+
+    height: 90vh;
+    width: 90vw; max-width: 800px;
+
+    background-color: white;
+    background-clip: padding-box;
+
+    display: none;
+    z-index: 10;
+    border: 2000px solid rgba(255, 255, 255, 0.8);
+
+    text-align: center; 
 }
 
-.bottomText{
-    box-sizing: border-box;
-    display: block;
-    font-size: 20px;
-    background-color: rgba(128, 128, 128, 0.8);
-    border:2px black solid;
-    border-top: none;
+.blackOutline{
+    height: 100%; 
+    width: 100%; 
+    position: absolute; 
+    border: 2px black solid; 
+    z-index: -1000;
+}
+
+#errorMessage{
+    height: 60px;
+    width: calc(90vw - 80px); max-width: 500px;
+
     text-align: center;
-    width: 180px;
+    line-height: 60px;
+    margin: 10px;
+
+    box-sizing: border-box;
+    border: 2px black solid;
+    background-color: orangered;   
+
+    visibility: hidden;
+    margin-left: min(150px, calc(50% - 250px));
+}
+
+#pizzaList{
+    overflow: auto;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    top: 200px;
+    z-index: -1;
+
+    height: calc(100% - 220px);
+    width: 80vw;
+}
+
+.pizzaEntry{
+    height: 150px;
+    border: 2px black solid;
+    margin-bottom: 30px;
 }
 
 #addPizzaButton{
@@ -72,56 +111,8 @@
     background-color: rgb(210,210,210);
 }
 
-#sortButton{
-    height: 80px;
-    width: 80px;
-    float: left;
-
-    margin: 0 5px;
-    border:2px black solid;
-    background-color: white;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 60%;
-    background-image: url('https://cdn.iconscout.com/icon/free/png-256/sort-1525870-1293647.png');
-}
-
-#sortButton:hover{
-    background-color: rgb(230, 230, 230);
-}
-
-#sortButton:active{
-    background-color: rgb(210,210,210);
-}
-
 #dropdownMenu li:hover{
     background-color: rgb(230, 230, 230);
-}
-
-ul{
-    padding: 0;
-    list-style-type: none;
-}
-
-#inputWindow{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    position: fixed;
-
-    height: 90vh;
-    width: 90vw; max-width: 800px;
-
-    background-color: white;
-    background-clip: padding-box;
-
-    display: none;
-    z-index: 10;
-    border: 2000px solid rgba(255, 255, 255, 0.8);
-
-    text-align: center; 
 }
 
 .close{
@@ -146,22 +137,6 @@ ul{
 
 #close{
     margin: 0;
-}
-
-#errorMessage{
-    height: 60px;
-    width: calc(90vw - 80px); max-width: 500px;
-
-    text-align: center;
-    line-height: 60px;
-    margin: 10px;
-
-    box-sizing: border-box;
-    border: 2px black solid;
-    background-color: orangered;   
-
-    visibility: hidden;
-    margin-left: min(150px, calc(50% - 250px));
 }
 
 h1{
@@ -209,12 +184,6 @@ span{
 
 #errorMessage.visible{
     visibility: visible;
-}
-
-.pizzaEntry{
-    height: 150px;
-    border: 2px black solid;
-    margin-bottom: 30px;
 }
 
 .nameAndHotness{
@@ -322,6 +291,29 @@ span{
     background-color: rgb(110, 220, 30);
 }
 
+#sortButton{
+    height: 80px;
+    width: 80px;
+    float: left;
+
+    margin: 0 5px;
+    border:2px black solid;
+    background-color: white;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    background-image: url('https://cdn.iconscout.com/icon/free/png-256/sort-1525870-1293647.png');
+}
+
+#sortButton:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+#sortButton:active{
+    background-color: rgb(210,210,210);
+}
+
 #sortingOptions{
     position: absolute;
     height: 300px;
@@ -354,17 +346,4 @@ span{
 
 #sortingOptions li:active{
     background-color: rgb(210,210,210);
-}
-
-
-:focus{
-    outline: none;
-}
-
-.blackOutline{
-    height: 100%; 
-    width: 100%; 
-    position: absolute; 
-    border: 2px black solid; 
-    z-index: -1000;
 }
